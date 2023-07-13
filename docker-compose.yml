@@ -4,8 +4,15 @@ services:
   # include all information in test and
   # add the command to run
   app:
+    &defaults
     image: nginx:alpine
     ports:
       - 8080:80 # ***update value here
     volumes:
       - ./app:/usr/share/nginx/html
+
+  test:
+    <<: *defaults
+    build:
+      context: .
+    command: echo "Success"
