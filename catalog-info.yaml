@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "homepage"
+  description: "DevXP Tech Landpage"
+  annotations:
+    github.com/project-slug: devxp-tech/homepage
+    backstage.io/techdocs-ref: dir:.
+    argocd/app-name: homepage-prd
+    backstage.io/kubernetes-id: "homepage"
+    sonarqube.org/project-key: "homepage"
+    grafana/tag-selector: "Kubernetes"
+    prometheus.io/rule: container_cpu_usage_seconds_total{namespace="homepage"}
+    prometheus.io/alert: all
+  links:
+    - url: https://homepage.devxp-tech.io
+      title: Website
+      icon: Website
+    - url: https://grafana.devxp-tech.io/
+      title: Dashboard
+      icon: dashboard
+    - url: https://alerts.devxp-tech.io/
+      title: Alerts
+      icon: alert
+    - url: https://argocd.devxp-tech.io/applications/homepage-prd?resource=
+      title: ArgoCD
+      icon: cloud
+    - url: https://grafana.devxp-tech.io/d/k8s_views_ns/kubernetes-views-namespaces?orgId=1&refresh=30s&var-datasource=Prometheus&var-namespace=homepage&var-resolution=30s
+      title: Logs
+      icon: cloud
+  tags:
+    - html
+    - "lab"
+    - "service"
+    - "experimental"
+spec:
+  system: "lab"
+  type: "service"
+  lifecycle: "experimental"
+  owner: "devxp-tech"
