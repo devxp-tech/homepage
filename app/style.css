@@ -329,8 +329,8 @@ body::-webkit-scrollbar {
   /* ----------------- BG INICIO ************* */
   
   .bg-inicio {
-    background-image: url(img/full-banner-inicio-teste.jpg);
-    background-position-x: 50%;
+    background-image: url(img/banner-3.jpg);
+    background-position-x: 100%;
     background-position-y: 0%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -342,14 +342,21 @@ body::-webkit-scrollbar {
   .bg-inicio h1 {
     margin-top: 120px;
     color: white;
-    font-size: 36pt;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 130.5%; 
+  }
+
+  .bg-inicio h1 span{
+    color: #007bff;
+    font-weight: 400;
   }
   
   .bg-inicio a {
     margin-top: 35px;
-    background-color: white;
-    color: #2fb4cc;
-    border: 1px solid white;
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
     font-size: 18pt;
     border-radius: 25px;
     padding: 10px 25px;
@@ -358,8 +365,8 @@ body::-webkit-scrollbar {
   
   .bg-inicio a:hover {
     transition: 0.8S;
-    background-color: #2fb4cc;
-    color: white;
+    background-color: white;
+    color: #007bff;
     border: 1px solid white;
   }
   
@@ -413,6 +420,10 @@ body::-webkit-scrollbar {
     color: #2fb4cc;
     margin-bottom: 20px;
     font-weight: 900;
+  }
+
+  .bg-parte-2 ul{
+    list-style: disc;
   }
   
   .bg-parte-2 a {
@@ -499,6 +510,51 @@ body::-webkit-scrollbar {
     font-weight: 700;
     font-size: 30px;
   }
+
+  /* ------- bg missoes ---*/
+
+  .bg-missoes{
+    background-image: url(img/banner-missoes.jpg);
+    background-position-x: 50%;
+    background-position-y: 0%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 80px 0px;
+    color: white;
+  }
+
+  .bg-missoes h2{
+    font-weight: 600;
+    margin-bottom: 70px;
+  }
+
+  .bg-missoes p{
+    font-size: 27px;
+    font-weight: 700;
+  }
+
+  .bg-missoes a {
+    background-color: white;
+    color: #007bff;
+    border: 1px solid white;
+    font-size: 18pt;
+    display: block;
+    border-radius: 25px;
+    padding: 7px 12px;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 75px;
+  }
+  
+  .bg-missoes a:hover {
+    transition: 0.8S;
+    background-color: white;
+    color: #007bff;
+    border: 1px solid white;
+  }
   
   /* Rodape */
   
@@ -539,6 +595,11 @@ body::-webkit-scrollbar {
     transition: 0.3S;
     color: black;
     color: #FA6600;
+  }
+
+  .i-twitter:hover {
+    transition: 0.3S;
+    color: #007bff;
   }
 
   /* -------------- RODAPE ------------ */
