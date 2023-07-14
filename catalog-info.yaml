@@ -6,7 +6,7 @@ metadata:
   annotations:
     github.com/project-slug: devxp-tech/homepage
     backstage.io/techdocs-ref: dir:.
-    argocd/app-name: homepage-dev
+    argocd/app-name: homepage-prd
     backstage.io/kubernetes-id: "homepage"
     sonarqube.org/project-key: "homepage"
     grafana/tag-selector: "Kubernetes"
