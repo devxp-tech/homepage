@@ -8,6 +8,7 @@ metadata:
     backstage.io/techdocs-ref: dir:.
     argocd/app-name: homepage-prd
     backstage.io/kubernetes-id: "homepage"
+    kubecost.com/deployment-name: "homepage"
     sonarqube.org/project-key: "homepage"
     grafana/tag-selector: "Kubernetes"
     prometheus.io/rule: container_cpu_usage_seconds_total{namespace="homepage"}
