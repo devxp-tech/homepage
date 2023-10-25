@@ -9,11 +9,12 @@ vars:
     password: true
 
 pipelines:
+  # Override the default pipeline for 'devspace dev'
   dev:
     run: |-
       run_dependencies --all       # 1. Deploy any projects this project needs (see "dependencies")
-      create_deployments --all
-      start_dev --all
+      create_deployments --all     # 2. Deploy Helm charts and manifests specfied as "deployments"
+      start_dev --all              # 3. Start dev mode "app" (see "dev" section
 
 # This is a list of `images` that DevSpace can build for this project
 # We recommend to skip image building during development (devspace dev) as much as possible
