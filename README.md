@@ -1,3 +1,3 @@
 # homepage 
 
-## Homepage App for DevXP
+## Homepage App for DevXP Tech
