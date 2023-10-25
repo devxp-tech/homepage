@@ -1,0 +1,62 @@
+version: v2beta1
+name: homepage
+
+# `vars` specifies variables which may be used as ${VAR_NAME} in devspace.yaml
+vars:
+  IMAGE: ghcr.io/devxp-tech/homepage
+  # IMAGE: diegoluisi/homepage
+  REGISTRY_PASSWORD:
+    password: true
+
+pipelines:
+  dev:
+    run: |-
+      run_dependencies --all       # 1. Deploy any projects this project needs (see "dependencies")
+      create_deployments --all
+      start_dev --all
+
+# This is a list of `images` that DevSpace can build for this project
+# We recommend to skip image building during development (devspace dev) as much as possible
+images:
+  app:
+    image: ${IMAGE}
+    dockerfile: ./Dockerfile
+
+# `deployments` tells DevSpace how to deploy this project
+deployments:
+  homepage:
+    # This deployment uses `kubectl` but you can also define `helm` deployments
+    helm:
+      chart:
+        name: devxp-dev
+        version: 0.0.3
+        repo: https://devxp-tech.github.io/helm-charts
+      values:
+        name: homepage
+
+# `dev` only applies when you run `devspace dev`
+dev:
+  # `dev.ports` specifies all ports that should be forwarded while `devspace dev` is running
+  # Port-forwarding lets you access your application via localhost on your local machine
+  homepage:
+    imageSelector: ${IMAGE}
+    ports:
+      - port: 8080:80
+    # `dev.open` tells DevSpace to open certain URLs as soon as they return HTTP status 200
+    # Since we configured port-forwarding, we can use a localhost address here to access our application
+    open:
+      - url: http://localhost:8080
+      - url: http://localhost:8090
+    sync:
+      - path: ./app/:/usr/share/nginx/html
+        excludePaths:
+          - .git/
+
+  # `dev.terminal` tells DevSpace to open a terminal as a last step during `devspace dev`
+  terminal:
+    imageSelector: ${IMAGE} # Select the Pod that runs our `${IMAGE}`
+    # With this optional `command` we can tell DevSpace to run a script when opening the terminal
+    # This is often useful to display help info for new users or perform initial tasks (e.g. installing dependencies)
+    # DevSpace has generated an example ./devspace_start.sh file in your local project - Feel free to customize it!
+    # command:
+    #   - ./devspace_start.sh
