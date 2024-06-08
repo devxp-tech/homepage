@@ -31,9 +31,9 @@ metadata:
       icon: cloud
   tags:
     - html
-    - "lab"
-    - "service"
-    - "experimental"
+    - lab
+    - service
+    - experimental
 spec:
   system: "lab"
   type: "service"
