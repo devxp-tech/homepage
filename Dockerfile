@@ -16,7 +16,7 @@ COPY ./app /usr/share/nginx/html
 
 # Copy the health check file
 COPY health-check/liveness/index.html /usr/share/nginx/html/health-check/liveness/index.html
-COPY health-check/readness/index.html /usr/share/nginx/html/health-check/readness/index.html
+COPY health-check/readiness/index.html /usr/share/nginx/html/health-check/readiness/index.html
 
 
 # Copy the custom Nginx configuration
