@@ -14,10 +14,9 @@ RUN curl -L https://github.com/nginxinc/nginx-prometheus-exporter/releases/downl
 # Copy the static application files to the Nginx document root
 COPY ./app /usr/share/nginx/html
 
-# Copy the health check file
+# Copy the health check files
 COPY health-check/liveness/index.html /usr/share/nginx/html/health-check/liveness/index.html
 COPY health-check/readiness/index.html /usr/share/nginx/html/health-check/readiness/index.html
-
 
 # Copy the custom Nginx configuration
 COPY conf/nginx.conf /etc/nginx/nginx.conf
